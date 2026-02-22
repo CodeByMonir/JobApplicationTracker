@@ -1,15 +1,414 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Application Tracker</title>
-</head>
-<body>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-[#F8FAFC]">
+    <section class="bg-white antialiased font-sans p-6 md:p-8 text-gray-900">
+        <header class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold text-[#002C5C] tracking-tight mb-6">
+                Job Application Tracker
+            </h1>
+
+            <div class="grid grid-cols-2 lg:grid-cols-3 justify-between items-center gap-4 mb-8">
+                <div class="bg-white rounded-xl px-5 py-3 min-w-[90px] w-full shadow-sm">
+                    <div class="text-xs uppercase tracking-wide text-gray-500 font-medium">
+                        Total
+                    </div>
+                    <div id="total-count" class="text-3xl font-semibold text-gray-800 leading-tight">
+                        0
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl px-5 py-3 min-w-[90px] w-full shadow-sm">
+                    <div class="text-xs uppercase tracking-wide text-gray-500 font-medium">
+                        Interview
+                    </div>
+                    <div id="interview-count" class="text-3xl font-semibold text-gray-800 leading-tight">
+                        0
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl px-5 py-3 min-w-[90px] w-full shadow-sm">
+                    <div class="text-xs uppercase tracking-wide text-gray-500 font-medium">
+                        Rejected
+                    </div>
+                    <div id="rejected-count" class="text-3xl font-semibold text-gray-800 leading-tight">
+                        0
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="max-w-3xl mx-auto">
+            <div class="mb-6">
+
+                <div class="flex justify-between mb-2">
+                    <h2 class="text-lg font-bold tracking-wider text-[#002C5C] mb-3">
+                        Available Jobs
+                    </h2>
+                    <p class="text-md font-bold tracking-wider text-gray-300 mb-3">
+                        <span id="job-count">0</span> Jobs
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2">
+                    <span id="all-btn"
+                        class="btn bg-primary text-white text-sm font-medium px-5 py-1.5 rounded-full cursor-default">All</span>
+                    <span id="interview-toggle-btn"
+                        class="btn bg-gray-100 text-gray-600 text-sm font-medium px-5 py-1.5 rounded-full cursor-default">Interview</span>
+                    <span id="rejected-toggle-btn"
+                        class="btn bg-gray-100 text-gray-600 text-sm font-medium px-5 py-1.5 rounded-full cursor-default">Rejected</span>
+                </div>
+
+            </div>
+
+            <div id="interveiw-list">
 
 
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Mobile First Corp</h3>
+                            <p class="mb-2 text-base text-gray-700 font-medium">
+                                React Native Developer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                Remote • Full-time • $130,000 - $175,000
+                            </p>
+                        </div>
+
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">WebFlow Agency</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                Web Designer & Developer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                Los Angeles, CA • Part-time • $80,000 - $120,000
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Create stunning web experiences for high-profile clients. Must have
+                        portfolio and experience with modern web design trends.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">DataViz Solutions</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                Data Visualization Specialist
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                Boston, MA • Full-time • $125,000 - $165,000
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Transform complex data into compelling visualizations. Required
+                        skills: D3.js, React, and strong analytical thinking.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">CloudFirst Inc</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                Backend Developer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                Seattle, WA
+                                •
+                                Full-time
+                                •
+                                $140,000 - $190,000
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
+                        practices
+                        and cloud infrastructure.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Innovation Labs</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                UI/UX Engineer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                Austin, TX
+                                •
+                                Full-time
+                                •
+                                $110,000 - $150,000
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Create beautiful and functional user interfaces for our suite of products. Strong design skills
+                        and
+                        frontend development expertise required.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">MegaCorp Solutions</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                JavaScript Developer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                New York, NY
+                                •
+                                Full-time
+                                •
+                                $130,000 - $170,00
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Build enterprise applications with JavaScript and modern frameworks. We offer competitive
+                        compensation, health insurance, and professional development opportunities.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">StartupXYZ</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                Full Stack Engineer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                Remote
+                                •
+                                Full-time
+                                •
+                                $120,000 - $160,000
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        Join our fast-growing startup and work on our core platform. Experience with Node.js and React
+                        required. Great benefits and equity package included.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
+                    <div class="flex justify-between">
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">TechCorp Industries</h3>
+                            <p class="text-base text-gray-700 font-medium">
+                                Senior Frontend Developer
+                            </p>
+                            <p class="text-sm text-gray-500 mt-0.5">
+                                San Francisco, CA
+                                •
+                                Full-time
+                                •
+                                $130,000 - $175,000
+                            </p>
+                        </div>
+                        <div>
+                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                                    class="fa-regular fa-trash-can"></i></span>
+                        </div>
+                    </div>
+
+                    <span id="act-display"
+                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        APPLIED</span>
+
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                        We are looking for an experienced Frontend Developer to build scalable web applications using
+                        React
+                        and TypeScript. You will work with a talented team on cutting-edge projects.
+                    </p>
+
+                <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                    <button id="interview-btn" class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                        INTERVIEW
+                    </button>
+                    <button id="rejected-btn" class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                        REJECTED
+                    </button>
+                </div>
+                </div>
+
+            </div>
+
+        </section>
+        </section>
 
     <script src="./script.js"></script>
 </body>
+
 </html>
