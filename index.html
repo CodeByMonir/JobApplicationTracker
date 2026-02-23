@@ -72,7 +72,11 @@
 
             </div>
 
-            <div id="interview-list">
+            <section id="filtered-card" class="hidden">
+            
+            </section>
+            
+            <main id="interview-list" class="">
 
 
 
@@ -80,37 +84,37 @@
                     <div class="flex justify-between">
 
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">Mobile First Corp</h3>
-                            <p class="mb-2 text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">Mobile First Corp</h3>
+                            <p class="card-cat mb-2 text-base text-gray-700 font-medium">
                                 React Native Developer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 Remote • Full-time • $130,000 - $175,000
                             </p>
                         </div>
 
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i
                                     class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Build cross-platform mobile applications using React Native. Work on
                         products used by millions of users worldwide.
                     </p>
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -119,36 +123,35 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">WebFlow Agency</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">WebFlow Agency</h3>
+                            <p class="card-cat text-base text-gray-700 font-medium">
                                 Web Designer & Developer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 Los Angeles, CA • Part-time • $80,000 - $120,000
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Create stunning web experiences for high-profile clients. Must have
                         portfolio and experience with modern web design trends.
                     </p>
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -157,36 +160,35 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">DataViz Solutions</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">DataViz Solutions</h3>
+                            <p class="card-cat text-base text-gray-700 font-medium">
                                 Data Visualization Specialist
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 Boston, MA • Full-time • $125,000 - $165,000
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Transform complex data into compelling visualizations. Required
                         skills: D3.js, React, and strong analytical thinking.
                     </p>
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -195,11 +197,11 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">CloudFirst Inc</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">CloudFirst Inc</h3>
+                            <p class="card-cat text-base text-gray-700 font-medium">
                                 Backend Developer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 Seattle, WA
                                 •
                                 Full-time
@@ -208,16 +210,15 @@
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
                         practices
                         and cloud infrastructure.
@@ -225,11 +226,11 @@
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -238,11 +239,11 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">Innovation Labs</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">Innovation Labs</h3>
+                            <p class="card-cat text-base text-gray-700 font-medium">
                                 UI/UX Engineer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 Austin, TX
                                 •
                                 Full-time
@@ -251,16 +252,15 @@
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Create beautiful and functional user interfaces for our suite of products. Strong design skills
                         and
                         frontend development expertise required.
@@ -268,11 +268,11 @@
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -281,11 +281,11 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">MegaCorp Solutions</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">MegaCorp Solutions</h3>
+                            <p class="card-cat text-base text-gray-700 font-medium">
                                 JavaScript Developer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 New York, NY
                                 •
                                 Full-time
@@ -294,27 +294,26 @@
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Build enterprise applications with JavaScript and modern frameworks. We offer competitive
                         compensation, health insurance, and professional development opportunities.
                     </p>
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -323,11 +322,11 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">StartupXYZ</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">StartupXYZ</h3>
+                            <p class="card-cat text-gray-700 font-medium">
                                 Full Stack Engineer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 Remote
                                 •
                                 Full-time
@@ -336,27 +335,26 @@
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         Join our fast-growing startup and work on our core platform. Experience with Node.js and React
                         required. Great benefits and equity package included.
                     </p>
 
                     <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
                         <button id="interview-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             INTERVIEW
                         </button>
                         <button id="rejected-btn"
-                            class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
                             REJECTED
                         </button>
                     </div>
@@ -365,11 +363,11 @@
                 <div class="mb-6 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm max-w-3xl">
                     <div class="flex justify-between">
                         <div class="mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">TechCorp Industries</h3>
-                            <p class="text-base text-gray-700 font-medium">
+                            <h3 class="card-title text-xl font-bold text-gray-800">TechCorp Industries</h3>
+                            <p class="card-cat text-base text-gray-700 font-medium">
                                 Senior Frontend Developer
                             </p>
-                            <p class="text-sm text-gray-500 mt-0.5">
+                            <p class="card-add text-sm text-gray-500 mt-0.5">
                                 San Francisco, CA
                                 •
                                 Full-time
@@ -378,34 +376,34 @@
                             </p>
                         </div>
                         <div>
-                            <span id="trash" class="p-1 border border-red-100 rounded-full items-center"><i
-                                    class="fa-regular fa-trash-can"></i></span>
+                            <span id="trash" class="trash p-1 border border-red-100 rounded-full items-center"><i class="fa-regular fa-trash-can"></i></span>
                         </div>
                     </div>
 
                     <span id="act-display"
-                        class="mb-1 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-sm">NOT
+                        class="act-display mb-2 bg-gray-200 text-gray-800 text-xs font-semibold px-4 py-1.5 rounded-full">NOT
                         APPLIED</span>
 
-                    <p class="text-sm text-gray-600 leading-relaxed max-w-xl">
+                    <p class="card-dis text-sm text-gray-600 leading-relaxed max-w-xl">
                         We are looking for an experienced Frontend Developer to build scalable web applications using
                         React
                         and TypeScript. You will work with a talented team on cutting-edge projects.
                     </p>
 
-                <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
-                    <button id="interview-btn" class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
-                        INTERVIEW
-                    </button>
-                    <button id="rejected-btn" class="btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
-                        REJECTED
-                    </button>
-                </div>
+                    <div class="flex flex-wrap items-center gap-3 mt-3 mb-3">
+                        <button id="interview-btn"
+                            class="interview-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            INTERVIEW
+                        </button>
+                        <button id="rejected-btn"
+                            class="rejected-btn btn bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full">
+                            REJECTED
+                        </button>
+                        </div>
                 </div>
 
-            </div>
+            </main>
 
-        </section>
         </section>
 
     <script src="./script.js"></script>
