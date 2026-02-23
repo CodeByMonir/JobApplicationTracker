@@ -6,9 +6,13 @@ const allBtn = document.getElementById('all-toggle-btn');
 const interviewBtn = document.getElementById('interview-toggle-btn');
 const rejectedBtn = document.getElementById('rejected-toggle-btn');
 
+const jobCounts = document.getElementById('job-count');
+
 let filteredCard = document.getElementById('filtered-card');
 
 let list = document.querySelector('#interview-list');
+
+const empty = document.getElementById('empty-status');
 
 const interview = [];
 const rejected = [];
@@ -17,6 +21,44 @@ function calculator() {
     totalCount.innerText = list.children.length;
     interviewCount.innerText = interview.length;
     rejectedCount.innerText = rejected.length;
+    
+    if (allBtn.classList.contains('bg-primary')) {
+        jobCounts.innerText = list.children.length;
+    } else if (interviewBtn.classList.contains('bg-primary')) {
+        jobCounts.innerText = interview.length;
+    } else if (rejectedBtn.classList.contains('bg-primary')) {
+        jobCounts.innerText = rejected.length;
+    }
+    
+    updateEmptyState();
+}
+
+function updateEmptyState() {
+    if (allBtn.classList.contains('bg-primary')) {
+        if (list.children.length === 0) {
+            empty.classList.remove('hidden');
+            list.classList.add('hidden');
+        } else {
+            empty.classList.add('hidden');
+            list.classList.remove('hidden');
+        }
+    } else if (interviewBtn.classList.contains('bg-primary')) {
+        if (interview.length === 0) {
+            empty.classList.remove('hidden');
+            filteredCard.classList.add('hidden');
+        } else {
+            empty.classList.add('hidden');
+            filteredCard.classList.remove('hidden');
+        }
+    } else if (rejectedBtn.classList.contains('bg-primary')) {
+        if (rejected.length === 0) {
+            empty.classList.remove('hidden');
+            filteredCard.classList.add('hidden');
+        } else {
+            empty.classList.add('hidden');
+            filteredCard.classList.remove('hidden');
+        }
+    }
 }
 
 calculator();
@@ -38,17 +80,68 @@ function toggle(id) {
         list.classList.add('hidden');
         filteredCard.classList.remove('hidden');
         renderInterview();
+        jobCounts.innerText = interview.length;
     } else if (id == 'all-toggle-btn') {
         list.classList.remove('hidden');
         filteredCard.classList.add('hidden');
+        empty.classList.add('hidden');
+        jobCounts.innerText = list.children.length;
     } else if (id == 'rejected-toggle-btn') {
         list.classList.add('hidden');
         filteredCard.classList.remove('hidden');
         renderRejected();
+        jobCounts.innerText = rejected.length;
+    }
+    
+    updateEmptyState();
+}
+
+function handleDeleteClick(event) {
+    const trashIcon = event.target.closest('.fa-trash-can');
+    if (!trashIcon) return;
+    
+    const parentNode = event.target.closest('.mb-6');
+    if (!parentNode) return;
+    
+    const cardTitle = parentNode.querySelector('.card-title').innerText;
+    
+    const mainCards = Array.from(list.children);
+    for (let card of mainCards) {
+        if (card.querySelector('.card-title')?.innerText === cardTitle) {
+            card.remove();
+            break;
+        }
+    }
+    
+    const interviewIndex = interview.findIndex(item => item.cardTitle === cardTitle);
+    if (interviewIndex !== -1) {
+        interview.splice(interviewIndex, 1);
+    }
+    
+    const rejectedIndex = rejected.findIndex(item => item.cardTitle === cardTitle);
+    if (rejectedIndex !== -1) {
+        rejected.splice(rejectedIndex, 1);
+    }
+    
+    calculator();
+    
+    if (!filteredCard.classList.contains('hidden')) {
+        if (interviewBtn.classList.contains('bg-primary')) {
+            renderInterview();
+            jobCounts.innerText = interview.length;
+        } else if (rejectedBtn.classList.contains('bg-primary')) {
+            renderRejected();
+            jobCounts.innerText = rejected.length;
+        }
     }
 }
 
 function handleButtonClick(event) {
+    if (event.target.classList.contains('fa-trash-can') || event.target.closest('.fa-trash-can')) {
+        handleDeleteClick(event);
+        return;
+    }
+    
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.closest('.mb-6');
         
@@ -81,15 +174,18 @@ function handleButtonClick(event) {
             rejected.splice(rejectedIndex, 1);
         }
         
+        calculator();
+        
         if (!filteredCard.classList.contains('hidden')) {
-            if (document.getElementById('interview-toggle-btn').classList.contains('bg-primary')) {
+            if (interviewBtn.classList.contains('bg-primary')) {
                 renderInterview();
-            } else if (document.getElementById('rejected-toggle-btn').classList.contains('bg-primary')) {
+                jobCounts.innerText = interview.length;
+            } else if (rejectedBtn.classList.contains('bg-primary')) {
                 renderRejected();
+                jobCounts.innerText = rejected.length;
             }
         }
         
-        calculator();
     } else if (event.target.classList.contains('rejected-btn')) {
         const parentNode = event.target.closest('.mb-6');
         
@@ -122,20 +218,21 @@ function handleButtonClick(event) {
             interview.splice(interviewIndex, 1);
         }
         
+        calculator();
+        
         if (!filteredCard.classList.contains('hidden')) {
-            if (document.getElementById('interview-toggle-btn').classList.contains('bg-primary')) {
+            if (interviewBtn.classList.contains('bg-primary')) {
                 renderInterview();
-            } else if (document.getElementById('rejected-toggle-btn').classList.contains('bg-primary')) {
+                jobCounts.innerText = interview.length;
+            } else if (rejectedBtn.classList.contains('bg-primary')) {
                 renderRejected();
+                jobCounts.innerText = rejected.length;
             }
         }
-        
-        calculator();
     }
 }
 
 list.addEventListener('click', handleButtonClick);
-
 filteredCard.addEventListener('click', handleButtonClick);
 
 function renderInterview() {
@@ -153,7 +250,7 @@ function renderInterview() {
                     <p class="card-add text-sm text-gray-500 mt-0.5">${inter.cardAdd}</p>
                 </div>
                 <div>
-                    <span class="p-1 border border-red-100 rounded-full items-center">
+                    <span class="trash p-1 border border-red-100 rounded-full items-center cursor-pointer">
                         <i class="fa-regular fa-trash-can"></i>
                     </span>
                 </div>
@@ -168,6 +265,8 @@ function renderInterview() {
 
         filteredCard.appendChild(div);
     }
+    
+    updateEmptyState();
 }
 
 function renderRejected() {
@@ -185,7 +284,7 @@ function renderRejected() {
                     <p class="card-add text-sm text-gray-500 mt-0.5">${rej.cardAdd}</p>
                 </div>
                 <div>
-                    <span class="p-1 border border-red-100 rounded-full items-center">
+                    <span class="trash p-1 border border-red-100 rounded-full items-center cursor-pointer">
                         <i class="fa-regular fa-trash-can"></i>
                     </span>
                 </div>
@@ -200,4 +299,8 @@ function renderRejected() {
 
         filteredCard.appendChild(div);
     }
+    
+    updateEmptyState();
 }
+
+calculator();
