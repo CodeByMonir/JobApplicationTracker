@@ -1,21 +1,43 @@
+//top counts
+
 let totalCount = document.getElementById('total-count');
 let interviewCount = document.getElementById('interview-count');
 let rejectedCount = document.getElementById('rejected-count');
+
+
+
+//catch toggle btns
 
 const allBtn = document.getElementById('all-toggle-btn');
 const interviewBtn = document.getElementById('interview-toggle-btn');
 const rejectedBtn = document.getElementById('rejected-toggle-btn');
 
+
+// catch job coutns
+
 const jobCounts = document.getElementById('job-count');
+
+
+//added empty card
 
 let filteredCard = document.getElementById('filtered-card');
 
+
+//added card list
+
 let list = document.querySelector('#interview-list');
+
+
+//added empty status
 
 const empty = document.getElementById('empty-status');
 
 const interview = [];
 const rejected = [];
+
+
+
+// function for calculate counts
 
 function calculator() {
     totalCount.innerText = list.children.length;
@@ -31,7 +53,11 @@ function calculator() {
     }
     
     updateEmptyState();
-}
+};
+
+
+
+//added empty status in toggles
 
 function updateEmptyState() {
     if (allBtn.classList.contains('bg-primary')) {
@@ -59,9 +85,15 @@ function updateEmptyState() {
             filteredCard.classList.remove('hidden');
         }
     }
-}
+};
 
 calculator();
+
+
+
+
+
+//toggling pong
 
 function toggle(id) {
     allBtn.classList.remove('bg-primary', 'text-white');
@@ -94,10 +126,15 @@ function toggle(id) {
     }
     
     updateEmptyState();
-}
+};
+
+
+
+
+// delete button
 
 function handleDeleteClick(event) {
-    const trashIcon = event.target.closest('.fa-trash-can');
+    const trashIcon = event.target.closest('.trash');
     if (!trashIcon) return;
     
     const parentNode = event.target.closest('.mb-6');
@@ -134,7 +171,11 @@ function handleDeleteClick(event) {
             jobCounts.innerText = rejected.length;
         }
     }
-}
+};
+
+
+
+// button funct created
 
 function handleButtonClick(event) {
     if (event.target.classList.contains('fa-trash-can') || event.target.closest('.fa-trash-can')) {
@@ -230,10 +271,16 @@ function handleButtonClick(event) {
             }
         }
     }
-}
+};
+
+//add function in eventlisteners 
 
 list.addEventListener('click', handleButtonClick);
 filteredCard.addEventListener('click', handleButtonClick);
+
+
+
+//render for inter
 
 function renderInterview() {
     filteredCard.innerHTML = "";
@@ -267,7 +314,10 @@ function renderInterview() {
     }
     
     updateEmptyState();
-}
+};
+
+
+// render for reject
 
 function renderRejected() {
     filteredCard.innerHTML = "";
@@ -301,6 +351,6 @@ function renderRejected() {
     }
     
     updateEmptyState();
-}
+};
 
 calculator();
